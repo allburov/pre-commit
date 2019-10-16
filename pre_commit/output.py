@@ -68,6 +68,8 @@ stdout_byte_stream = getattr(sys.stdout, 'buffer', sys.stdout)
 
 
 def write(s, stream=stdout_byte_stream):
+    if '(no files to check)' in s:
+        return
     stream.write(five.to_bytes(s))
     stream.flush()
 
